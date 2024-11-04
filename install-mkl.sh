@@ -3,12 +3,9 @@ set -eux
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
-VERSION_YEAR=2020
-VERSION_UPDATE=1
-VERSION_REV=217
-PREFIX=l_mkl_${VERSION_YEAR}.${VERSION_UPDATE}.${VERSION_REV}
+VERSION="2025.0.0.940"
+PREFIX=intel-onemkl-${VERSION}_offline
 
-curl -sfLO http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/16533/${PREFIX}.tgz
-tar xf ${PREFIX}.tgz
-cd ${PREFIX}
-./install.sh -s ${SCRIPT_DIR}/silent.cfg
+curl -sfLO http://registrationcenter-download.intel.com/akdlm/IRC_NAS/79153e0f-74d7-45af-b8c2-258941adf58a/${PREFIX}.sh
+chmod +x ${PREFIX}.sh
+./${PREFIX}.sh -a -s --eula accept --ignore-errors --install-dir /opt/intel
