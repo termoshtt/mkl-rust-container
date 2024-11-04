@@ -25,7 +25,7 @@ fn main() -> Result<()> {
         let lib = Library::new(cfg)?;
         let (year, _, update) = lib.version()?;
         let name = ImageName::parse(&format!(
-            "ghcr.io/rust-math/rust-mkl/{}/{}:{}.{}-{}",
+            "ghcr.io/someone13574/rust-mkl/{}/{}:{}.{}-{}",
             std::env::consts::OS,
             cfg,
             year,
