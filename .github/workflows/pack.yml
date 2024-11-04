@@ -15,7 +15,7 @@ jobs:
   linux:
     runs-on: ubuntu-22.04
     container:
-      image: rust:1.63.0
+      image: rust:1.82.0
     steps:
       - uses: actions/checkout@v1
 
@@ -63,8 +63,8 @@ jobs:
       # Create oci-archive
       - name: Get MKL using NuGet
         run: |
-          nuget install intelmkl.devel.cluster.win-x64  -Version 2022.0.3.171
-          nuget install intelmkl.static.cluster.win-x64 -Version 2022.0.3.171
+          nuget install intelmkl.devel.cluster.win-x64  -Version 2025.0.0.928
+          nuget install intelmkl.static.cluster.win-x64 -Version 2025.0.0.928
       - uses: actions-rs/cargo@v1
         with:
           command: run

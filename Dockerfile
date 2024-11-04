@@ -1,4 +1,4 @@
-FROM rust:1.72.0
+FROM rust:1.82.0
 
 # Setup Intel-MKL
 WORKDIR /mkl
@@ -8,7 +8,7 @@ RUN apt update \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
-COPY install-mkl.sh silent.cfg /mkl/
+COPY install-mkl.sh /mkl/
 RUN /mkl/install-mkl.sh
 
 # Setup linker to find shared library
@@ -16,8 +16,7 @@ COPY intel-mkl.conf /etc/ld.so.conf.d/
 RUN ldconfig
 
 # Setup pkg-config
-ENV PKG_CONFIG_PATH /opt/intel/mkl/bin/pkgconfig
-RUN sed -i "s/MKLROOT/prefix/g" ${PKG_CONFIG_PATH}/*.pc
+ENV PKG_CONFIG_PATH /opt/intel/mkl/latest/lib/pkgconfig
 
 WORKDIR /src
 RUN chmod -R a+w /src
