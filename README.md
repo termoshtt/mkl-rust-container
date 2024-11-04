@@ -10,14 +10,14 @@ Usage
 - With docker:
 
   ```
-  docker pull ghcr.io/rust-math/rust-mkl:1.62.1-2020.1
+  docker pull ghcr.io/rust-math/rust-mkl:1.82.0-2025.0
   ```
 
 - In GitHub Actions:
   ```
   runs-on: ubuntu-latest
   container:
-    image: ghcr.io/rust-math/rust-mkl:1.62.1-2020.1
+    image: ghcr.io/rust-math/rust-mkl:1.82.0-2025.0
   ```
   See [`jobs.<job_id>.container`](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer) section of the workflow syntax.
 
